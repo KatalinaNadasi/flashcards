@@ -11,15 +11,20 @@ app.use(cookieParser())
 app.set('view engine', 'pug')
 
 app.get('/', (req, res) => {
-  res.render('hello')
+  const name = req.cookies.username;
+  if (name) {
+    res.render('hello_response', { name });
+  } else {
+    res.redirect('/hello');
+  }
 })
 
 app.get('/hello', (req, res) => {
   const name = req.cookies.username;
-  if(name) {
+  if (name) {
     res.render('hello_response')
   } else {
-    res.render('layout');
+    res.render('hello');
   }
 })
 
