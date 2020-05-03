@@ -1,8 +1,7 @@
 extends layout
 
 block content
-  h2 welcome
-    form(action='/hello', method='post')
-      label Please enter your name
-        input(type='text', name='username')
-      button(type='submit') Submit
+  form(action='/hello', method='post')
+    label Please enter your name
+      input(type='text', name='username')
+    button(type='submit') Submit
