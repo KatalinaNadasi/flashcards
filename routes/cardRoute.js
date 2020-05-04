@@ -4,12 +4,26 @@ const router = express.Router()
 const { data } = require('../data/flashcardData.json')
 const { cards } = data
 
+router.get('/hello', (req, res) => {
+  const name = req.cookies.username;
+  if (name) {
+    res.render('hello_response')
+  } else {
+    res.render('hello');
+  }
+})
+
 router.get('/hello/:id', (req, res) => {
   const name = req.cookies.username;
   if (name) {
-    res.render('hello_response', {
-      question: cards[req.params.id].question,
-    })
+    const { side } = req.query
+    const { id } = req.params
+    const text = cards[id][side]
+    const { hint } = cards[id]
+    const templateData = { text }
+
+    res.render('hello_response', templateData)
+
   } else {
     res.render('hello');
   }

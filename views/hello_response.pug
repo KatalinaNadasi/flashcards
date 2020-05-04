@@ -3,5 +3,6 @@ extends layout
 block content
   h2 Welcome #{name}!
     form(action='/goodbye', method='post')
-      p= question
+      p= text
+      i= hint
       button(type='submit') GoodBye
