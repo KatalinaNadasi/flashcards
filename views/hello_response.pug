@@ -3,4 +3,5 @@ extends layout
 block content
   h2 Welcome #{name}!
     form(action='/goodbye', method='post')
+      p= question
       button(type='submit') GoodBye
