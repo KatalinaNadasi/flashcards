@@ -2,7 +2,9 @@ extends layout
 
 block content
   h2 Welcome #{name}!
-    form(action='/goodbye', method='post')
       p= text
       i= hint
-      button(type='submit') GoodBye
+      div
+        a(href=`${id}?side=${sideToShow}`)= sideToShowDisplay
+      form(action='/goodbye', method='post')
+        button(type='submit') Clear cookie
