@@ -30,7 +30,7 @@ router.get('/hello/:id', (req, res) => {
     const { id } = req.params
     const text = cards[id][side]
     const { hint } = cards[id]
-    const templateData = { id, text }
+    const templateData = { id, text, name }
 
     if (!side) {
       res.redirect(`/hello/${id}?side=question`)
