@@ -6,5 +6,7 @@ block content
       i= hint
       div
         a(href=`${id}?side=${sideToShow}`)= sideToShowDisplay
+        br
+        a(href=`/`) Next question
       form(action='/goodbye', method='post')
         button(type='submit') Clear cookie
